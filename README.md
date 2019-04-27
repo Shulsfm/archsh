@@ -1,4 +1,4 @@
-wget https://git.io/fjGtT/stage1.sh && sh stage1.sh
+wget https://git.io/fjGtU && sh stage1.sh
 
 Установка 3-й части производится из терминала командой:
 
