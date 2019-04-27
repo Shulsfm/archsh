@@ -8,19 +8,19 @@ timedatectl set-ntp true
 echo '2.4 создание разделов'
 (
   echo o;
-
+  #boot раздел
   echo n;
   echo;
   echo;
   echo;
   echo +100M;
-
+  #основной раздел
   echo n;
   echo;
   echo;
   echo;
   echo +30;
-
+  #swap
   echo n;
   echo;
   echo;
