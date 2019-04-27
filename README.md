@@ -1,4 +1,4 @@
-wget https://github.com/Shulsfm/archsh/blob/master/stage1.sh && sh stage1.sh
+wget https://git.io/fjGL5 && sh stage1.sh
 
 Установка 3-й части производится из терминала командой:
 
