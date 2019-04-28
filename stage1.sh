@@ -20,7 +20,7 @@ echo '2.4 создание разделов'
   echo 3;
   echo;
   echo +1024M;
-  #swap
+  #data
   echo n;
   echo;
   echo 2;
