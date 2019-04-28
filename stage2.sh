@@ -65,8 +65,18 @@ pacman -S $gui_install
 echo "Какое DE ставим?"
 read -p "1 - i3-gaps, 2 - XFCE, 3 - KDE, 4 - Openbox: " vm_setting
 if [[ $vm_setting == 1 ]]; then
-  pacman -S i3-gaps i3blocks i3lock i3status --noconfirm
+  pacman -S i3-gaps i3blocks i3lock i3status dmenu scrot feh xfce4-terminal thunar --noconfirm
   echo 'exec i3' >> ~/.xinitrc
+  #yaourt
+  sudo pacman -S --noconfirm --needed wget curl git 
+  git clone https://aur.archlinux.org/yay-bin.git
+  cd yay-bin
+  makepkg -si --skipinteg
+  cd ..
+  rm -rf yay-bin
+  # start pack
+  yaourt -S compton ttf-font-awesome xkblayout-state lxappearance --noconfirm
+  pacman -S openssh net-tools htop vim vlc ufw p7zip unrar --noconfirm
 elif [[ $vm_setting == 2 ]]; then
   pacman -S xfce4 xfce4-goodies --noconfirm
 elif [[ $vm_setting == 3 ]]; then
