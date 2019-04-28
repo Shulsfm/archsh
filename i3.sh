@@ -14,6 +14,7 @@ rm -rf yay-bin
 
 # i3 soft
 yay -S compton ttf-font-awesome xkblayout-state lxappearance --noconfirm
+sudo pacman -S chromium --noconfirm
 
 echo 'Копирование конфига i3'
 cd ~/.config/
