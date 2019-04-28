@@ -65,7 +65,7 @@ pacman -S $gui_install
 echo "Какое DE ставим?"
 read -p "1 - i3-gaps, 2 - XFCE, 3 - KDE, 4 - Openbox: " vm_setting
 if [[ $vm_setting == 1 ]]; then
-  pacman -S i3-gaps i3blocks i3lock i3status dmenu scrot feh xfce4-terminal thunar --noconfirm
+  pacman -S i3-gaps i3blocks i3lock i3status dmenu scrot feh xfce4-terminal ranger --noconfirm
   echo 'exec i3' >> ~/.xinitrc
   pacman -S openssh net-tools htop vim vlc ufw p7zip unrar --noconfirm
 elif [[ $vm_setting == 2 ]]; then
