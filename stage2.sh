@@ -63,26 +63,34 @@ echo 'Ставим иксы и драйвера'
 pacman -S $gui_install
 
 echo "Какое DE ставим?"
-read -p "1 - XFCE, 2 - KDE, 3 - Openbox: " vm_setting
+read -p "1 - i3-gaps, 2 - XFCE, 3 - KDE, 4 - Openbox: " vm_setting
 if [[ $vm_setting == 1 ]]; then
-  pacman -S xfce4 xfce4-goodies --noconfirm
+  pacman -S i3-gaps i3blocks i3lock i3status --noconfirm
+  echo 'exec i3' >> ~/.xinitrc
 elif [[ $vm_setting == 2 ]]; then
+  pacman -S xfce4 xfce4-goodies --noconfirm
+elif [[ $vm_setting == 3 ]]; then
   pacman -Sy plasma-meta kdebase --noconfirm
-elif [[ $vm_setting == 3 ]]; then  
+elif [[ $vm_setting == 4 ]]; then  
   pacman -S  openbox xfce4-terminal
 fi
 
 echo 'Какой ставим DM ?'
-read -p "1 - sddm (Для Openbox не ставить, нет выбора пользователя), 2 - lxdm: " dm_setting
+read -p "1 - lightDM ,2 - sddm (Для Openbox не ставить, нет выбора пользователя), 3 - lxdm: " dm_setting
 if [[ $dm_setting == 1 ]]; then
+  pacman -Sy lightdm lightdm-gtk-greeter --noconfirm
+  systemctl enable lightdm.service -f
+elif [[ $dm_setting == 2 ]]; then
   pacman -Sy sddm sddm-kcm --noconfirm
   systemctl enable sddm.service -f
-elif [[ $dm_setting == 2 ]]; then
+elif [[ $dm_setting == 3 ]]; then
   pacman -S lxdm --noconfirm
   systemctl enable lxdm
 fi
 
 echo 'Ставим шрифты'
+cd /usr/share/font/TTF/
+wget https://github.com/Shulsfm/archsh/raw/master/files/Terminus.ttf
 pacman -S ttf-liberation ttf-dejavu --noconfirm 
 
 echo 'Ставим сеть'
@@ -91,7 +99,6 @@ pacman -S networkmanager network-manager-applet ppp --noconfirm
 echo 'Подключаем автозагрузку менеджера входа и интернет'
 systemctl enable NetworkManager
 
-echo 'Установка завершена! Перезагрузите систему.'
-echo 'Если хотите подключить AUR, установить мои конфиги XFCE, тогда после перезагрзки и входа в систему, установите wget (sudo pacman -S wget) и выполните команду:'
-echo 'wget https://raw.githubusercontent.com/Shulsfm/archsh/master/stage3.sh && sh stage3.sh'
+echo 'Установка успешно завершена!'
 exit
+reboot
