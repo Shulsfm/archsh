@@ -75,7 +75,7 @@ if [[ $vm_setting == 1 ]]; then
   cd ..
   rm -rf yay-bin
   # start pack
-  yaourt -S compton ttf-font-awesome xkblayout-state lxappearance --noconfirm
+  yay -S compton ttf-font-awesome xkblayout-state lxappearance --noconfirm
   pacman -S openssh net-tools htop vim vlc ufw p7zip unrar --noconfirm
 elif [[ $vm_setting == 2 ]]; then
   pacman -S xfce4 xfce4-goodies --noconfirm
