@@ -67,7 +67,7 @@ read -p "1 - i3-gaps, 2 - XFCE, 3 - KDE, 4 - Openbox: " vm_setting
 if [[ $vm_setting == 1 ]]; then
   pacman -S i3-gaps i3blocks i3lock i3status dmenu scrot feh xfce4-terminal ranger --noconfirm
   echo 'exec i3' >> ~/.xinitrc
-  pacman -S openssh net-tools htop vim vlc ufw p7zip unrar --noconfirm
+  pacman -S openssh net-tools htop gvim vlc ufw p7zip unrar --noconfirm
 elif [[ $vm_setting == 2 ]]; then
   pacman -S xfce4 xfce4-goodies --noconfirm
 elif [[ $vm_setting == 3 ]]; then
